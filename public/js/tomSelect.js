@@ -1,0 +1,1 @@
+new TomSelect('select[multiple]');
