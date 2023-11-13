@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('picture');
-            $table->foreignId('gamme_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 

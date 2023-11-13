@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class product extends Model
 {
     use HasFactory;
-
-    public function gamme()
-    {
+    public function gamme() {
         return $this->belongsTo(Gamme::class);
     }
 }
