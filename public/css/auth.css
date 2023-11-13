@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+mark {
+    background-color: transparent;
+}
+
+body {
+    background-color: #f3f4f6;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Styles communs pour section.auth */
+section.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+section.auth .logo {
+    font-size: 70px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+section.auth .logo i {
+    font-size: 70px;
+}
+
+section.auth #container .form_auth {
+    background: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    width: 450px;
+    display: flex;
+    border-radius: 15px;
+}
+
+section.auth #container .form_auth form {
+    width: 100%;
+    padding: 20px;
+}
+
+section.auth #container .form_auth form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+section.auth #container .form_auth form .form-group label {
+    color: #394150;
+    margin-bottom: 8px;
+}
+
+section.auth #container .form_auth form .form-group input {
+    width: 100%;
+    height: 42px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+    border-radius: 5px;
+    border: 1px solid #d2d5db;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #535e75;
+    outline: none;
+}
+
+section.auth #container .form_auth form .form-group input:focus, section.auth.dark #container form .form-group input:focus {
+    border: 1px solid #4e47dd;
+}
+
+section.auth #container .form_auth form .form-submit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+section.auth #container .form_auth form .form-submit a {
+    color: #4d5562;
+    transition-duration: .5s;
+}
+
+section.auth #container .form_auth form .form-submit a:hover {
+    color: #181b1f;
+}
+
+section.auth #container .form_auth form .form-submit button {
+    background-color: #212936;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+section.auth #container .form_auth form .form-submit button:hover {
+    background-color: #394150;
+}
+
+.alert {
+    background-color: #F7F8FD;
+    border: 1px solid #DDDCDA;
+    box-shadow: 0 2px 20px rgb(216, 225, 232, 1);
+    width: 100%;
+    border-radius: 3px;
+    padding: 15px;
+    display: flex;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+.alert .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert i {
+    margin-right: 20px;
+    font-size: 21px;
+}
+
+.alert i {
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert i.info {
+    color: #01648E;
+    background-color: #CCF0FF;
+}
+
+.alert i.success {
+    color: #289900;
+    background-color: #bcfcab;
+}
+
+.alert i.error {
+    color: #F30C0C;
+    background-color: #FDCECE;
+}
+
+.alert i.danger {
+    color: #C27605;
+    background-color: #FEEED7;
+}
+
+
