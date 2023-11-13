@@ -1,4 +1,4 @@
-@extends('base')
+@extends('public.base')
 
 @section('Coloration', 'Accueil')
 
@@ -8,9 +8,12 @@
             <h1>Coloration</h1>
             <div class="content grid-1">
                 <p>
-                    Les colorants classiques contiennent souvent des substances nocives telles que le formaldéhyde, l'ammoniaque, les silicones et les conservateurs.
-                    Ils ont un impact négatif sur notre santé, notre environnement et notre corps. Beaucoup de ces ingrédients proviennent de la
-                    transformation des huiles minérales, ne pouvant pas se biodégrader et donc mauvais pour notre planète. Ils contiennent une multitude de substances
+                    Les colorants classiques contiennent souvent des substances nocives telles que le formaldéhyde,
+                    l'ammoniaque, les silicones et les conservateurs.
+                    Ils ont un impact négatif sur notre santé, notre environnement et notre corps. Beaucoup de ces
+                    ingrédients proviennent de la
+                    transformation des huiles minérales, ne pouvant pas se biodégrader et donc mauvais pour notre
+                    planète. Ils contiennent une multitude de substances
                     synthétiques et pétrochimiques nuisibles à la santé et à l'environnement.
                 </p>
             </div>

@@ -1,4 +1,4 @@
-@extends('base')
+@extends('public.base')
 
 @section('content')
     <section class="brochures">

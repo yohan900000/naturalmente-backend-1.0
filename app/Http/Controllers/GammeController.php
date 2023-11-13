@@ -9,9 +9,9 @@ class GammeController extends Controller
         $pages = ['nature_inside', 'in_bloom', 'sun', 'revitalisant', 'coiffant_finition', 'gentleman', 'couleur', 'plante', 'wellness'];
 
         if (in_array($slug, $pages)) {
-            return view('gammes');
+            return view('public.gammes');
         }
 
-        return view('index')->with('error', 'page introuvable');
+        return view('public.index')->with('error', 'page introuvable');
     }
 }

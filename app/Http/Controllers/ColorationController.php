@@ -8,6 +8,6 @@ class ColorationController extends Controller
 {
     public function index(): View
     {
-        return view('coloration');
+        return view('public.coloration');
     }
 }
