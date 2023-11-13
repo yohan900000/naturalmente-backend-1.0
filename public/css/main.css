@@ -169,10 +169,11 @@ header a.logo img {
     padding: 18px 25px;
     font-size: 15px;
     transition-duration: 0.5s;
+    color: #fff;
+    font-weight: 500;
 }
 .navigation li a {
     text-decoration: none;
-    font-weight: 500;
     color: #fff;
 }
 .navigation li.sub:hover ul.submenu {
@@ -447,5 +448,66 @@ section.coloration #container .links__coloration a:hover {
 }
 #container section.products .product .modal-product.modal-open {
     display: flex;
+}
+
+.alert {
+    background-color: #F7F8FD;
+    border: 1px solid #DDDCDA;
+    box-shadow: 0 2px 20px rgb(216, 225, 232, 1);
+    width: 100%;
+    border-radius: 3px;
+    padding: 15px;
+    display: flex;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+.alert .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert .text {
+    color: #565656;
+}
+
+.alert .text b {
+    font-weight: 700;
+    color: #141414;
+}
+
+.alert i {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.alert i {
+    width: 32px;
+    border-radius: 50%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert i.info {
+    color: #01648E;
+    background-color: #CCF0FF;
+}
+
+.alert i.success {
+    color: #289900;
+    background-color: #D9FFCC;
+}
+
+.alert i.error {
+    color: #F30C0C;
+    background-color: #FDCECE;
+}
+
+.alert i.danger {
+    color: #C27605;
+    background-color: #FEEED7;
 }
 

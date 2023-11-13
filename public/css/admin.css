@@ -397,5 +397,63 @@ main .main-content .links a:hover {
 main .main-content .links a.active {
   background-color: #a67c52;
 }
+.alert {
+    background-color: #F7F8FD;
+    border: 1px solid #DDDCDA;
+    box-shadow: 0 2px 20px rgb(216, 225, 232, 1);
+    width: 100%;
+    border-radius: 3px;
+    padding: 15px;
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
 
-/*# sourceMappingURL=admin.css.map */
+.alert .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert .text {
+    color: #565656;
+}
+
+.alert .text b {
+    font-weight: 700;
+    color: #141414;
+}
+
+.alert i {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.alert i {
+    width: 32px;
+    border-radius: 50%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert i.info {
+    color: #01648E;
+    background-color: #CCF0FF;
+}
+
+.alert i.success {
+    color: #289900;
+    background-color: #D9FFCC;
+}
+
+.alert i.error {
+    color: #F30C0C;
+    background-color: #FDCECE;
+}
+
+.alert i.danger {
+    color: #C27605;
+    background-color: #FEEED7;
+}
