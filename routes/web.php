@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ColorationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -27,4 +28,9 @@ Route::get('/coloration', [ColorationController::class, 'index'])->name('colorat
 Route::get('/spa-cheveux', [SpaHairController::class, 'index'])->name('spa-hair');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+/*
+ * Authentification
+ */
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
