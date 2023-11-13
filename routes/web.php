@@ -32,5 +32,5 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 /*
  * Authentification
  */
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/stylelogin', [LoginController::class, 'index'])->name('login');
 
