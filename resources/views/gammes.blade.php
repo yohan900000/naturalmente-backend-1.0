@@ -21,7 +21,6 @@
                         <p>
                             <b>Shampoing nettoyant 100% végétal et restructurant</b>
                             La présence d'un tensio-actif très original dérivé de l'huile d'argan en fait un shampoing procure brillance et volume en nourrissant le cheveu en profondeur.
-
                         </p>
                     </div>
                 </div>

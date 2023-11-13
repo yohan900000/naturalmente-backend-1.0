@@ -6,12 +6,12 @@ class GammeController extends Controller
 {
     public function index($slug)
     {
-        $pages = ['sun', 'in_bloom'];
+        $pages = ['nature_inside', 'in_bloom', 'sun', 'revitalisant', 'coiffant_finition', 'gentleman', 'couleur', 'plante', 'wellness'];
 
         if (in_array($slug, $pages)) {
             return view('gammes');
         }
 
-        return view('index');
+        return view('index')->with('error', 'page introuvable');
     }
 }
