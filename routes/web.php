@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\administration\AdministrationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ColorationController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GammeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SpaHairController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,13 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
  */
 Route::get('/stylelogin', [LoginController::class, 'index'])->name('login');
 Route::post('/stylelogin', [LoginController::class, 'doLogin']);
+/*
+ * Authentification
+ */
+
+Route::middleware(['auth'])->prefix('/administration')->group(function() {
+    Route::get('/', [AdministrationController::class, 'index'])->name('admin');
+    Route::delete('/', [LoginController::class, 'logout']);
+});
+
 

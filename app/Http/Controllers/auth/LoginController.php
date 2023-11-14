@@ -12,6 +12,9 @@ class LoginController extends Controller
 {
     public function index(): View
     {
+        if (auth()->check()) {
+            return view('public.index');
+        }
         return view('auth.login');
     }
 
@@ -19,12 +22,18 @@ class LoginController extends Controller
     {
         $authRequest->validated();
 
-        if(Auth::attempt($authRequest->validated())) {
+        if (Auth::attempt($authRequest->validated())) {
             $authRequest->session()->regenerate();
-            return redirect()->intended(route('index'));
+            return redirect()->intended(route('admin'));
         }
 
         return redirect()->route('login')->with('error', 'Nom de compte ou mot de passe inccorect');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
     }
 
 
