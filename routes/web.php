@@ -33,4 +33,5 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
  * Authentification
  */
 Route::get('/stylelogin', [LoginController::class, 'index'])->name('login');
+Route::post('/stylelogin', [LoginController::class, 'doLogin']);
 
