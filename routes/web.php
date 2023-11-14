@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\administration\AdministrationController;
+use App\Http\Controllers\administration\GammeAdministrationController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ColorationController;
 use App\Http\Controllers\ContactController;
@@ -35,13 +36,16 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
  */
 Route::get('/stylelogin', [LoginController::class, 'index'])->name('login');
 Route::post('/stylelogin', [LoginController::class, 'doLogin']);
-/*
- * Authentification
- */
 
+/*
+ * Administration
+ */
 Route::middleware(['auth'])->prefix('/administration')->group(function() {
     Route::get('/', [AdministrationController::class, 'index'])->name('admin');
-    Route::delete('/', [LoginController::class, 'logout']);
+    Route::delete('/', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
+
 });
 
 
