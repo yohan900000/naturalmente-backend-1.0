@@ -7,7 +7,7 @@
                     <a href="create_products.html">Ajouter un produit</a>
                 </div>
                 bonjour {{ auth()->user()->name }}
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     @method('delete')
                     @csrf

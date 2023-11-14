@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\administration\AdministrationController;
 use App\Http\Controllers\administration\GammeAdministrationController;
+use App\Http\Controllers\administration\ManagementFramingTextController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ColorationController;
 use App\Http\Controllers\ContactController;
@@ -36,11 +37,19 @@ Route::post('/stylelogin', [LoginController::class, 'doLogin']);
 /*
  * Administration
  */
-Route::middleware(['auth'])->prefix('/administration')->group(function() {
+Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(function () {
     Route::get('/', [AdministrationController::class, 'index'])->name('admin');
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('admin.gammes');
+    Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
+
+    Route::prefix('framing-text')->name('framing-text.')->group(function () {
+        Route::get('/create', [ManagementFramingTextController::class, 'index'])->name('create');
+        Route::post('/store', [ManagementFramingTextController::class, 'store'])->name('store');
+
+        Route::get('/update', [ManagementFramingTextController::class, 'index'])->name('edit');
+        Route::put('/update', [ManagementFramingTextController::class, 'update'])->name('update');
+    });
 });
 
 

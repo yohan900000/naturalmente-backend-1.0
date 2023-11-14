@@ -26,6 +26,6 @@ class GammeAdministrationController extends Controller
         if (in_array($slug, $pages)) {
             return view('administration.gammes');
         }
-        return redirect()->route('admin')->with('error', 'page introuvable');
+        return redirect()->route('admin.admin')->with('error', 'page introuvable');
     }
 }
