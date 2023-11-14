@@ -22,13 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-
 Route::get('/gammes/{slug}', [GammeController::class, 'index'])->name('gammes');
-
 Route::get('/coloration', [ColorationController::class, 'index'])->name('coloration');
-
 Route::get('/spa-cheveux', [SpaHairController::class, 'index'])->name('spa-hair');
-
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 /*
@@ -44,8 +40,7 @@ Route::middleware(['auth'])->prefix('/administration')->group(function() {
     Route::get('/', [AdministrationController::class, 'index'])->name('admin');
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
-
+    Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('admin.gammes');
 });
 
 

@@ -9,11 +9,23 @@ class GammeAdministrationController extends Controller
 {
     public function index($slug)
     {
-        $pages = ['nature_inside', 'in_bloom', 'sun', 'revitalisant', 'coiffant_finition', 'gentleman', 'couleur', 'plante', 'wellness'];
+        $pages = [
+            'nature_inside',
+            'in_bloom',
+            'sun',
+            'revitalisant',
+            'gentleman',
+            'coiffant_finition',
+            'coloration',
+            'spa-cheveux',
+            'couleur',
+            'plante',
+            'wellness'
+        ];
 
         if (in_array($slug, $pages)) {
             return view('administration.gammes');
         }
-return redirect()->route('admin')->with('error', 'page introuvable');
+        return redirect()->route('admin')->with('error', 'page introuvable');
     }
 }
