@@ -3,13 +3,18 @@
 @section('content')
     <div class="main-content">
         <div class="top_bar">
-            <div class="links">
-                <a href="create_products.html">Ajouter un produit</a>
-            </div>
+            bonjour {{ auth()->user()->name }}
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+                @method('delete')
+                @csrf
+                <button type="submit">Déconnexion</button>
+            </form>
         </div>
         <div class="container__main">
             <div class="main__top">
                 <h2>Mes textes encadrer</h2>
+                <a class="btn_add" href="{{ route('admin.framing-text.create') }}">Ajouter</a>
             </div>
             <article>
                 <div class="content">
@@ -25,6 +30,7 @@
 
             <div class="main__top">
                 <h2>Mes textes</h2>
+                <a class="btn_add" href="#">Ajouter</a>
             </div>
             <article>
                 <div class="content">
@@ -40,6 +46,7 @@
 
             <div class="main__top">
                 <h2>Mes images</h2>
+                <a class="btn_add" href="#">Ajouter</a>
             </div>
             <article>
                 <div class="content">

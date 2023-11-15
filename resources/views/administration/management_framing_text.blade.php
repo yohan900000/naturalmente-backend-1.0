@@ -3,9 +3,6 @@
 @section('content')
     <div class="main-content">
         <div class="top_bar">
-            <div class="links">
-                <a href="create_products.html">Ajouter un produit</a>
-            </div>
             bonjour {{ auth()->user()->name }}
             <form method="POST" action="{{ route('admin.logout') }}">
                 @csrf
@@ -32,7 +29,7 @@
                                 (EDTA), d’éthanolamines (DEA, TEA, MEA).
                             </p>
                             <div class="form-group">
-                                <label for="">Catégorie</label>
+                                <label for="category">Catégorie</label>
                                 <select name="category" id="category" multiple>
                                     <option value="html">Html</option>
                                     <option value="css">Css</option>
@@ -43,10 +40,10 @@
                             </div>
                             <span class="sep"></span>
                             <div class="form-group">
-                                <label for="title">Votre texte</label>
-                                <textarea name="content">{{ old('content', '') }}</textarea>
+                                <label for="description">Votre texte</label>
+                                <textarea id="description" name="description"></textarea>
                             </div>
-                            <button type="submit" name="create_product">Envoyer</button>
+                            <button class="btn_submit" name="create_product">Envoyer</button>
                         </form>
                     </div>
                 </div>

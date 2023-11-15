@@ -24,7 +24,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($authRequest->validated())) {
             $authRequest->session()->regenerate();
-            return redirect()->intended(route('admin'));
+            return redirect()->intended(route('admin.admin'));
         }
 
         return redirect()->route('login')->with('error', 'Nom de compte ou mot de passe inccorect');
