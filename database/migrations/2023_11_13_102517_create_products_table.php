@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Gamme;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gammes', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->string('description');
+            $table->string('picture');
+            $table->foreignId('gamme_id')->constrained('gammes')->cascadeOnDelete();
             $table->timestamps();
-        });
-        Schema::table('products', function (Blueprint $table) {
-            $table->foreignIdFor(Gamme::class)->constrained()->cascadeOnDelete();
         });
     }
 
@@ -27,9 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gammes');
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeignIdFor(Gamme::class);
+            $table->dropForeign(['gamme_id']);
         });
+
+        Schema::dropIfExists('products');
     }
 };

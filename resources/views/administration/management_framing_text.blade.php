@@ -12,13 +12,24 @@
             </form>
         </div>
         <div class="content">
+            @if($errors->any())
+                @foreach($errors->all() as $message)
+                    <div class="alert">
+                        <i class="fa-solid fa-circle-xmark error"></i>
+                        <div class="text">
+                            <b>Une erreur est survenue</b>
+                            {{ $message }}
+                        </div>
+                    </div>
+                @endforeach
+            @endif
             <div class="container__main">
                 <div class="main__top">
                     <h2>Création d'un text</h2>
                 </div>
                 <div class="content">
                     <div class="form__main">
-                        <form action="" method="POST" id="texte-encadrer-form">
+                        <form action="{{ route('admin.framing-text.create') }}" method="POST" id="texte-encadrer-form">
                             @csrf
                             @method('post')
                             <div class="title__form">Exemple</div>
@@ -29,13 +40,11 @@
                                 (EDTA), d’éthanolamines (DEA, TEA, MEA).
                             </p>
                             <div class="form-group">
-                                <label for="category">Catégorie</label>
-                                <select name="category" id="category" multiple>
-                                    <option value="html">Html</option>
-                                    <option value="css">Css</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="php">Php</option>
-                                    <option value="laravel">Laravel</option>
+                                <label for="gamme_id">Catégorie</label>
+                                <select name="gamme_id" id="gamme_id" multiple>
+                                    @foreach($gammes as $gamme)
+                                        <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <span class="sep"></span>
@@ -43,7 +52,7 @@
                                 <label for="description">Votre texte</label>
                                 <textarea id="description" name="description"></textarea>
                             </div>
-                            <button class="btn_submit" name="create_product">Envoyer</button>
+                            <button type="submit" class="btn_submit" name="create_product">Envoyer</button>
                         </form>
                     </div>
                 </div>

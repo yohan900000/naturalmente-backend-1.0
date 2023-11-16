@@ -12,6 +12,15 @@
             </form>
         </div>
         <div class="container__main">
+            @if(session('success'))
+                <div class="alert">
+                    <i class="fa-solid fa-circle-check success"></i>
+                    <div class="text">
+                        <b>Une erreur est survenue</b>
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
             <div class="main__top">
                 <h2>Mes textes encadrer</h2>
                 <a class="btn_add" href="{{ route('admin.framing-text.create') }}">Ajouter</a>

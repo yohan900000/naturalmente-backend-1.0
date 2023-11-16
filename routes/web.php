@@ -45,7 +45,7 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
 
     Route::prefix('framing-text')->name('framing-text.')->group(function () {
         Route::get('/create', [ManagementFramingTextController::class, 'index'])->name('create');
-        Route::post('/store', [ManagementFramingTextController::class, 'store'])->name('store');
+        Route::post('/create', [ManagementFramingTextController::class, 'store'])->name('store');
 
         Route::get('/update', [ManagementFramingTextController::class, 'index'])->name('edit');
         Route::put('/update', [ManagementFramingTextController::class, 'update'])->name('update');

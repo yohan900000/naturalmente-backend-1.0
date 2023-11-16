@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\View\View;
 
 class LoginController extends Controller
@@ -20,8 +21,6 @@ class LoginController extends Controller
 
     public function doLogin(AuthRequest $authRequest)
     {
-        $authRequest->validated();
-
         if (Auth::attempt($authRequest->validated())) {
             $authRequest->session()->regenerate();
             return redirect()->intended(route('admin.admin'));
