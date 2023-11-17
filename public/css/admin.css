@@ -278,6 +278,7 @@ main .main-content .container__main .content article .actions .delete, main .mai
     background-color: #f25353;
     cursor: pointer;
     opacity: 1;
+    border:none;
 }
 
 main .main-content .container__main .content article .actions .delete i, main .main-content .container__main .content article .actions .update i {

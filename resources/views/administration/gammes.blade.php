@@ -16,7 +16,7 @@
                 <div class="alert">
                     <i class="fa-solid fa-circle-check success"></i>
                     <div class="text">
-                        <b>Une erreur est survenue</b>
+                        <b>Opération réussi</b>
                         {{ session('success') }}
                     </div>
                 </div>
@@ -31,7 +31,11 @@
                             <article class="frame">
                                 <p class="products__description">{!! strip_tags($framingText->description) !!}</p>
                                 <div class="actions">
-                                    <a class="delete" href=""><i class="fa-solid fa-xmark"></i></a>
+                                    <form action="{{ url()->current() }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="delete" name="delete_framing_text" value="{{ $framingText->id }}"><i class="fa-solid fa-xmark"></i></button>
+                                    </form>
                                     <a class="update" href=""><i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </article>

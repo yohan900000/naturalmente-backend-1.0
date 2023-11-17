@@ -59,8 +59,9 @@ class ManagementFramingTextController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        FramingText::findOrFail($request->input('delete_framing_text'))->delete();
+        return redirect(url()->current())->with('success', 'L\'élément a été supprimé avec succès!');
     }
 }

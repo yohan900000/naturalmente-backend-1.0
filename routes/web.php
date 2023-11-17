@@ -42,6 +42,7 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
+    Route::delete('/gammes/{slug}', [ManagementFramingTextController::class, 'destroy']);
 
     Route::prefix('framing-text')->name('framing-text.')->group(function () {
         Route::get('/create', [ManagementFramingTextController::class, 'index'])->name('create');
