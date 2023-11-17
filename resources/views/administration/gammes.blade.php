@@ -25,8 +25,19 @@
                 <h2>Mes textes encadrer</h2>
                 <a class="btn_add" href="{{ route('admin.framing-text.create') }}">Ajouter</a>
             </div>
-            <article>
-                <div class="content">
+                @if($framingTexts->isNotEmpty())
+                    @foreach($framingTexts as $framingText)
+                        <div class="content">
+                            <article class="frame">
+                                <p class="products__description">{!! strip_tags($framingText->description) !!}</p>
+                                <div class="actions">
+                                    <a class="delete" href=""><i class="fa-solid fa-xmark"></i></a>
+                                    <a class="update" href=""><i class="fa-solid fa-pen"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                @else
                     <div class="alert alert-danger" style="margin-bottom: 20px">
                         <i class="fa-solid fa-circle-info info"></i>
                         <div class="text">
@@ -34,8 +45,7 @@
                             Aucun texte encadré n'a été ajouté jusqu'à présent.
                         </div>
                     </div>
-                </div>
-            </article>
+                @endif
 
             <div class="main__top">
                 <h2>Mes textes</h2>
