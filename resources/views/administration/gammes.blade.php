@@ -29,14 +29,14 @@
                     @foreach($framingTexts as $framingText)
                         <div class="content">
                             <article class="frame">
-                                <p class="products__description">{!! strip_tags($framingText->description) !!}</p>
+                                <div class="products__description"> {!! $framingText->description !!}</div>
                                 <div class="actions">
                                     <form action="{{ url()->current() }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button class="delete" name="delete_framing_text" value="{{ $framingText->id }}"><i class="fa-solid fa-xmark"></i></button>
                                     </form>
-                                    <a class="update" href=""><i class="fa-solid fa-pen"></i></a>
+                                    <a class="update" href="{{ route('admin.framing-text.edit', ['id' => $framingText->id]) }}"><i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </article>
                         </div>

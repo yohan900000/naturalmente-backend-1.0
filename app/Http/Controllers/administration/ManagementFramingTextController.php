@@ -15,9 +15,13 @@ class ManagementFramingTextController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Gamme $gamme)
+    public function index()
     {
-        return view('administration.management_framing_text', ['gammes' => $gamme->all()]);
+        $gammes = Gamme::all();
+
+        $framingText = new FramingText();
+
+        return view('administration.management_framing_text', compact('gammes', 'framingText'));
     }
 
     /**
@@ -25,35 +29,38 @@ class ManagementFramingTextController extends Controller
      */
     public function store(FramingTextRequest $framingTextRequest)
     {
-        $gammeName = Gamme::find($framingTextRequest->validated('gamme_id'));
+        $gamme = Gamme::findOrFail($framingTextRequest->validated('gamme_id'));
 
-        FramingText::create($framingTextRequest->validated());
+        $gamme->framingText()->create($framingTextRequest->validated());
 
-        return redirect()->route('admin.gammes', $gammeName->name)->with('success', 'Enregistrement réussi !');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return redirect()->route('admin.gammes', ['slug' => $gamme->name])->with('success', 'Enregistrement réussi !');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function edit(string $id)
     {
-        //
+        $framingText = FramingText::where('id', $id)->firstOrFail();
+
+        return view('administration.management_framing_text', [
+            'framingText' => $framingText,
+            'gammes' => Gamme::all()
+        ]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(string $id, FramingTextRequest $framingTextRequest)
+    {
+        $framingText = FramingText::where('id', $id);
+        $gammeName = Gamme::find($framingTextRequest->validated('gamme_id'));
+
+        $framingText->update($framingTextRequest->validated());
+        return redirect()->route('admin.gammes', ['slug' => $gammeName->name])->with('success', 'Enregistrement réussi !');
+
     }
 
     /**

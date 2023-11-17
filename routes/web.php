@@ -44,12 +44,15 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
     Route::delete('/gammes/{slug}', [ManagementFramingTextController::class, 'destroy']);
 
+    /*
+     * Administration FRAMING_TEXT
+    */
     Route::prefix('framing-text')->name('framing-text.')->group(function () {
         Route::get('/create', [ManagementFramingTextController::class, 'index'])->name('create');
         Route::post('/create', [ManagementFramingTextController::class, 'store'])->name('store');
 
-        Route::get('/update', [ManagementFramingTextController::class, 'index'])->name('edit');
-        Route::put('/update', [ManagementFramingTextController::class, 'update'])->name('update');
+        Route::get('/update/{id}', [ManagementFramingTextController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [ManagementFramingTextController::class, 'update'])->name('update');
     });
 });
 

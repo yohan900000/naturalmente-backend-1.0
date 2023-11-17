@@ -60,6 +60,11 @@ mark {
     background-color: transparent;
 }
 
+strong {
+    font-weight: 700;
+}
+
+
 body {
     background-color: #fff;
     font-family: "Open Sans", sans-serif;
@@ -446,7 +451,7 @@ main .main-content .container__main .form__main form.hidden {
     display: none;
 }
 
-main .main-content .container__main .form__main p.products__description {
+main .main-content .container__main .form__main .products__description {
     border: 1px solid #a67c52;
     color: #a67c52;
     padding: 15px;
@@ -457,7 +462,7 @@ main .main-content .container__main .form__main p.products__description {
     margin-bottom: 15px;
 }
 
-main .main-content p.products__description {
+main .main-content .products__description {
     border: 1px solid #a67c52;
     color: #a67c52;
     padding: 15px;

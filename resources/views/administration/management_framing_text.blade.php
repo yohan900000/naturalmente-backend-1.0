@@ -1,5 +1,4 @@
 @extends('administration.base')
-
 @section('content')
     <div class="main-content">
         <div class="top_bar">
@@ -25,13 +24,13 @@
             @endif
             <div class="container__main">
                 <div class="main__top">
-                    <h2>Création d'un text</h2>
+                    <h2>{{ request()->segment(3) === 'create' ? 'Création d\'un text encadré' : 'Modification du text encadré' }}</h2>
                 </div>
                 <div class="content">
                     <div class="form__main">
-                        <form action="{{ route('admin.framing-text.create') }}" method="POST" id="texte-encadrer-form">
+                        <form action="" method="POST" id="texte-encadrer-form">
                             @csrf
-                            @method('post')
+                            @method(request()->segment(3) === 'create' ? 'post' : 'put')
                             <div class="title__form">Exemple</div>
                             <p class="products__description">
                                 Tous les produits contiennent des huiles essentielles de culture biologique d'une pureté
@@ -43,14 +42,14 @@
                                 <label for="gamme_id">Catégorie</label>
                                 <select name="gamme_id" id="gamme_id" multiple>
                                     @foreach($gammes as $gamme)
-                                        <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
+                                        <option value="{{ $gamme->id }}" {{ $gamme->id === $framingText->gamme_id ? 'selected' : '' }}>{{ $gamme->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <span class="sep"></span>
                             <div class="form-group">
                                 <label for="description">Votre texte</label>
-                                <textarea id="description" name="description"></textarea>
+                                <textarea id="description" name="description">{{ old('', $framingText->description) }}</textarea>
                             </div>
                             <button type="submit" class="btn_submit" name="create_product">Envoyer</button>
                         </form>

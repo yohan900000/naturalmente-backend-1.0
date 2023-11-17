@@ -13,7 +13,7 @@ class GammeAdministrationController extends Controller
     {
         $gamme = Gamme::where('name', $slug)->firstOrFail();
 
-        $framingTexts = FramingText::where('gamme_id', $gamme->id)->get();
+        $framingTexts = FramingText::where('gamme_id', $gamme->id)->orderByDesc('id')->get();
 
         return view('administration.gammes', compact('framingTexts', 'gamme'));
     }
