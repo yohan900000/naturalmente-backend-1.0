@@ -3,6 +3,17 @@
 @section('content')
     <section class="brochures">
         <div id="container">
+
+            @if(session('error'))
+                <div class="alert" style="margin-top: 0;">
+                    <i class="fa-solid fa-circle-xmark error"></i>
+                    <div class="text">
+                        <b>Une erreur est survenue</b>
+                        {{ session('error') }}
+                    </div>
+                </div>
+            @endif
+
             <div class="brochures__brochures">
                 <img src="{{ asset('images/brochures/brochure-1.png') }}" alt="">
             </div>

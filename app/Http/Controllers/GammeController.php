@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\FramingText;
+use App\Models\Gamme;
+
 class GammeController extends Controller
 {
     public function index($slug)
     {
-        $pages = ['nature_inside', 'in_bloom', 'sun', 'revitalisant', 'coiffant_finition', 'gentleman', 'couleur', 'plante', 'wellness'];
+        $gamme = Gamme::where('name', $slug)->firstOrFail();
 
-        if (in_array($slug, $pages)) {
-            return view('public.gammes');
-        }
+        $framingTexts = FramingText::where('gamme_id', $gamme->id)->get();
 
-        return view('public.index')->with('error', 'page introuvable');
+        return view('public.gammes', compact('framingTexts', 'gamme'));
     }
 }

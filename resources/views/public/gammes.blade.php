@@ -3,10 +3,9 @@
 @section('content')
     <div id="container">
         <h1 class="products__title">Gamme In Bloom</h1>
-        <p class="products__description">
-            Tous les produits contiennent des huiles essentielles de culture biologique d'une pureté de 100%. Ils ne contiennent pas d’huile minérale, de laureth sulfate de sodium (SLS),
-            de parabens, de formaldéhyde, de soude caustique, d’acides éthylènediaminetétraacétique (EDTA), d’éthanolamines (DEA, TEA, MEA).
-        </p>
+        @foreach($framingTexts as $framingText)
+            <p class="products__description">{!! strip_tags($framingText->description) !!}</p>
+        @endforeach
         <section class="products">
             <div class="product clickable-product">
                 <img src="{{ asset('images/products/nature-inside/shampoing/citron.png') }}" alt="">

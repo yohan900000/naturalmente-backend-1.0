@@ -28,7 +28,7 @@ class ManagementFramingTextController extends Controller
         $gammeName = Gamme::find($framingTextRequest->validated('gamme_id'));
 
         FramingText::create($framingTextRequest->validated());
-        
+
         return redirect()->route('admin.gammes', $gammeName->name)->with('success', 'Enregistrement réussi !');
     }
 

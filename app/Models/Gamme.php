@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Gamme extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name'];
+
+    public function framingText()
+    {
+        return $this->hasOne(FramingText::class);
+    }
 }

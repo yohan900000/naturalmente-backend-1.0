@@ -12,7 +12,7 @@ class FramingText extends Model
 
     public function gamme(): BelongsTo
     {
-        return $this->belongsTo(Gamme::class, 'gamme_id');
+        return $this->belongsTo(Gamme::class);
     }
 
     protected $fillable = [
