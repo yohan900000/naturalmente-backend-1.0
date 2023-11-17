@@ -3,29 +3,18 @@
 namespace App\Http\Controllers\administration;
 
 use App\Http\Controllers\Controller;
+use App\Models\FramingText;
+use App\Models\Gamme;
 use Illuminate\Http\Request;
 
 class GammeAdministrationController extends Controller
 {
     public function index($slug)
     {
-        $pages = [
-            'nature_inside',
-            'in_bloom',
-            'sun',
-            'revitalisant',
-            'gentleman',
-            'coiffant_finition',
-            'coloration',
-            'spa-cheveux',
-            'couleur',
-            'plante',
-            'wellness'
-        ];
+        $gamme = Gamme::where('name', $slug)->firstOrFail();
 
-        if (in_array($slug, $pages)) {
-            return view('administration.gammes');
-        }
-        return redirect()->route('admin.admin')->with('error', 'page introuvable');
+        $framingTexts = FramingText::where('gamme_id', $gamme->id)->get();
+
+        return view('administration.gammes', compact('framingTexts', 'gamme'));
     }
 }
