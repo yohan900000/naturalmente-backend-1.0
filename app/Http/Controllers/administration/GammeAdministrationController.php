@@ -10,11 +10,13 @@ class GammeAdministrationController extends Controller
 {
     public function index($slug): view
     {
+        $gammes = Gamme::all();
+
         $gamme = Gamme::where('name', $slug)->firstOrFail();
 
         $framingTexts = $gamme->framingText()->latest()->get();
         $texts = $gamme->text()->latest()->get();
 
-        return view('administration.gammes', compact('framingTexts', 'gamme', 'texts'));
+        return view('administration.gammes', compact('framingTexts', 'gamme', 'texts', 'gammes'));
     }
 }

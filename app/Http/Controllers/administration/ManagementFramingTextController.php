@@ -18,7 +18,7 @@ class ManagementFramingTextController extends Controller
 
         $framingText = new FramingText();
 
-        return view('administration.management_framing_text', compact('gammes', 'framingText'));
+        return view('administration.management_framing_text', compact('gammes', 'framingText', 'gammes'));
     }
 
     /**
