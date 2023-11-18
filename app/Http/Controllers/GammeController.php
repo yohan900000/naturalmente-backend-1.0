@@ -14,8 +14,9 @@ class GammeController extends Controller
         $gamme = Gamme::where('name', $slug)->firstOrFail();
 
         $framingTexts = $gamme->framingText;
+        $texts = $gamme->text;
 
-        return view('public.gammes', compact('framingTexts', 'gamme'));
+        return view('public.gammes', compact('framingTexts', 'gamme', 'texts'));
     }
 
 }

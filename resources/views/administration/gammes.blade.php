@@ -62,7 +62,7 @@
                 <div class="content">
                     @foreach($texts as $text)
                         <article>
-                            <p>{!! $text->description !!}</p>
+                            {!! $text->description !!}
                             <div class="actions">
                                 <form action="{{ url()->current() }}" method="post">
                                     @csrf

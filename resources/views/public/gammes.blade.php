@@ -6,6 +6,13 @@
         @foreach($framingTexts as $framingText)
             <div class="products__description">{!! $framingText->description !!}</div>
         @endforeach
+        @foreach($texts as $text)
+            <div class="content grid-1">
+                <div class="test">
+                    <p>{!! $text->description !!}</p>
+                </div>
+            </div>
+        @endforeach
         <section class="products">
             <div class="product clickable-product">
                 <img src="{{ asset('images/products/nature-inside/shampoing/citron.png') }}" alt="">
@@ -19,7 +26,8 @@
                         <img src="{{ asset('images/products/nature-inside/shampoing/citron.png') }}" alt="">
                         <p>
                             <b>Shampoing nettoyant 100% végétal et restructurant</b>
-                            La présence d'un tensio-actif très original dérivé de l'huile d'argan en fait un shampoing procure brillance et volume en nourrissant le cheveu en profondeur.
+                            La présence d'un tensio-actif très original dérivé de l'huile d'argan en fait un shampoing
+                            procure brillance et volume en nourrissant le cheveu en profondeur.
                         </p>
                     </div>
                 </div>

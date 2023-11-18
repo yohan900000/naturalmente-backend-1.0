@@ -125,7 +125,6 @@ h1 {
     align-items: center;
 }
 .content.grid-1 p, .content.grid-2 p {
-    margin-bottom: 30px;
     width: 100%;
 }
 .content.grid-1 p b, .content.grid-2 p b {
