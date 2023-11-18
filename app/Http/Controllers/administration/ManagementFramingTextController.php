@@ -7,9 +7,6 @@ use App\Http\Requests\FramingTextRequest;
 use App\Models\FramingText;
 use App\Models\Gamme;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Str;
-
 class ManagementFramingTextController extends Controller
 {
     /**
@@ -41,7 +38,8 @@ class ManagementFramingTextController extends Controller
      */
     public function edit(string $id)
     {
-        $framingText = FramingText::where('id', $id)->firstOrFail();
+        $framingText = FramingText::findOrFail($id);
+        $framingText->load('gamme');
 
         return view('administration.management_framing_text', [
             'framingText' => $framingText,
@@ -55,11 +53,12 @@ class ManagementFramingTextController extends Controller
      */
     public function update(string $id, FramingTextRequest $framingTextRequest)
     {
-        $framingText = FramingText::where('id', $id);
-        $gammeName = Gamme::find($framingTextRequest->validated('gamme_id'));
+        $framingText = FramingText::findOrFail($id);
+        $framingText->load('gamme');
 
         $framingText->update($framingTextRequest->validated());
-        return redirect()->route('admin.gammes', ['slug' => $gammeName->name])->with('success', 'Enregistrement réussi !');
+
+        return redirect()->route('admin.gammes', ['slug' => $framingText->gamme->name])->with('success', 'Enregistrement réussi !');
 
     }
 
@@ -68,7 +67,10 @@ class ManagementFramingTextController extends Controller
      */
     public function destroy(Request $request)
     {
-        FramingText::findOrFail($request->input('delete_framing_text'))->delete();
+        $framingTextId = $request->input('delete_framing_text');
+
+        FramingText::destroy($framingTextId);
+
         return redirect(url()->current())->with('success', 'L\'élément a été supprimé avec succès!');
     }
 }

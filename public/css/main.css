@@ -60,6 +60,9 @@ mark {
     background-color: transparent;
 }
 
+strong {
+    font-weight: 700;
+}
 body {
     background-color: #F7F8FD;
     font-family: "Open Sans", sans-serif;
@@ -340,7 +343,7 @@ section.coloration #container .links__coloration a:hover {
     font-size: 20px;
     margin-bottom: 20px;
 }
-#container p.products__description {
+#container .products__description {
     border: 1px solid #a67c52;
     color: #a67c52;
     padding: 15px;

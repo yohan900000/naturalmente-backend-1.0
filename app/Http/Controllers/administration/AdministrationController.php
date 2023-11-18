@@ -7,8 +7,8 @@ use Illuminate\View\View;
 
 class AdministrationController extends Controller
 {
-
-    public function index(): View {
+    public function index(): View
+    {
         return view('administration.index');
     }
 

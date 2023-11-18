@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Gamme extends Model
 {
@@ -11,8 +12,13 @@ class Gamme extends Model
 
     protected $fillable = ['name'];
 
-    public function framingText()
+    public function framingText(): HasMany
     {
-        return $this->hasOne(FramingText::class);
+        return $this->hasMany(FramingText::class);
     }
+    public function text(): HasMany
+    {
+        return $this->hasMany(Text::class);
+    }
+
 }

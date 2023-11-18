@@ -4,7 +4,7 @@
     <div id="container">
         <h1 class="products__title">Gamme In Bloom</h1>
         @foreach($framingTexts as $framingText)
-            <p class="products__description">{!! strip_tags($framingText->description) !!}</p>
+            <div class="products__description">{!! $framingText->description !!}</div>
         @endforeach
         <section class="products">
             <div class="product clickable-product">

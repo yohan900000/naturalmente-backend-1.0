@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class FramingText extends Model
+class Text extends Model
 {
     use HasFactory;
 
@@ -18,4 +18,5 @@ class FramingText extends Model
         'description',
         'gamme_id'
     ];
+
 }

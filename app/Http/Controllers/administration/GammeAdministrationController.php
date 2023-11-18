@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\administration;
 
 use App\Http\Controllers\Controller;
-use App\Models\FramingText;
 use App\Models\Gamme;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class GammeAdministrationController extends Controller
 {
-    public function index($slug)
+    public function index($slug): view
     {
         $gamme = Gamme::where('name', $slug)->firstOrFail();
 
-        $framingTexts = FramingText::where('gamme_id', $gamme->id)->orderByDesc('id')->get();
+        $framingTexts = $gamme->framingText()->latest()->get();
+        $texts = $gamme->text()->latest()->get();
 
-        return view('administration.gammes', compact('framingTexts', 'gamme'));
+        return view('administration.gammes', compact('framingTexts', 'gamme', 'texts'));
     }
 }

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\administration\AdministrationController;
 use App\Http\Controllers\administration\GammeAdministrationController;
+use App\Http\Controllers\administration\ManagementDestroyController;
 use App\Http\Controllers\administration\ManagementFramingTextController;
+use App\Http\Controllers\administration\ManagementTextController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ColorationController;
 use App\Http\Controllers\ContactController;
@@ -29,7 +31,7 @@ Route::get('/spa-cheveux', [SpaHairController::class, 'index'])->name('spa-hair'
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 /*
- * Authentification
+ * Authentication
  */
 Route::get('/stylelogin', [LoginController::class, 'index'])->name('login');
 Route::post('/stylelogin', [LoginController::class, 'doLogin']);
@@ -42,7 +44,8 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
-    Route::delete('/gammes/{slug}', [ManagementFramingTextController::class, 'destroy']);
+    Route::delete('/gammes/{slug}', [ManagementDestroyController::class, 'destroy']);
+
 
     /*
      * Administration FRAMING_TEXT
@@ -54,6 +57,20 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
         Route::get('/update/{id}', [ManagementFramingTextController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [ManagementFramingTextController::class, 'update'])->name('update');
     });
+
+    /*
+     * Administration TEXT
+    */
+    Route::prefix('text')->name('text.')->group(function () {
+        Route::get('/create', [ManagementTextController::class, 'index'])->name('create');
+        Route::post('/create', [ManagementTextController::class, 'store']);
+
+        Route::get('/update/{id}', [ManagementTextController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [ManagementTextController::class, 'update'])->name('update');
+
+
+    });
+
 });
 
 
