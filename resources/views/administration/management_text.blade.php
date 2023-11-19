@@ -28,11 +28,12 @@
                 </div>
                 <div class="content">
                     <div class="form__main">
-                        <form action="" method="POST" id="texte-encadrer-form">
+                        <form action="" method="POST">
                             @csrf
+                            @method('post')
                             @method(request()->segment(3) === 'create' ? 'post' : 'put')
                             <div class="form-group">
-                                <label for="gamme_id">Catégorie</label>
+                                <label for="gamme_id">Gamme</label>
                                 <select name="gamme_id" id="gamme_id" multiple>
                                     @foreach($gammes as $gamme)
                                         <option value="{{ $gamme->id }}" {{ $gamme->id === $text->gamme_id ? 'selected' : '' }}>{{ $gamme->name }}</option>

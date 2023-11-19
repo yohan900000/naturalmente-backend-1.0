@@ -15,8 +15,9 @@ class GammeController extends Controller
 
         $framingTexts = $gamme->framingText;
         $texts = $gamme->text;
+        $products = $gamme->product;
 
-        return view('public.gammes', compact('framingTexts', 'gamme', 'texts'));
+        return view('public.gammes', compact('framingTexts', 'gamme', 'texts', 'products'));
     }
 
 }

@@ -352,6 +352,10 @@ section.coloration #container .links__coloration a:hover {
     max-width: 1000px;
     margin: 30px 0;
 }
+
+#container .products__description p {
+    word-wrap: break-word;
+}
 #container section.products {
     margin: 40px auto;
     display: flex;

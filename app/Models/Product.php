@@ -12,4 +12,10 @@ class product extends Model
     public function gamme(): belongsTo {
         return $this->belongsTo(Gamme::class);
     }
+
+    protected $fillable = [
+        'title',
+        'description',
+        'picture'
+    ];
 }
