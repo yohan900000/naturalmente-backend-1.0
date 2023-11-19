@@ -61,16 +61,4 @@ class ManagementFramingTextController extends Controller
         return redirect()->route('admin.gammes', ['slug' => $framingText->gamme->name])->with('success', 'Enregistrement réussi !');
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
-    {
-        $framingTextId = $request->input('delete_framing_text');
-
-        FramingText::destroy($framingTextId);
-
-        return redirect(url()->current())->with('success', 'L\'élément a été supprimé avec succès!');
-    }
 }

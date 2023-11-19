@@ -61,17 +61,4 @@ class ManagementTextController extends Controller
 
         return redirect()->route('admin.gammes', ['slug' => $text->gamme->name])->with('success', 'Enregistrement réussi !');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
-    {
-
-        $textId = $request->input('delete_text');
-
-        Text::destroy($textId);
-
-        return redirect(url()->current())->with('success', 'L\'élément a été supprimé avec succès!');
-    }
 }

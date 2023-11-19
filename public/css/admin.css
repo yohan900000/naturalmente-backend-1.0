@@ -236,6 +236,19 @@ main .main-content .container__main .content article {
     box-shadow: 0 2px 20px rgb(216, 225, 232);
     position: relative;
 }
+main .main-content .container__main .content article.product {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+main .main-content .container__main .content article h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #a67c52;
+}
 
 main .main-content .container__main .content article p {
     line-height: 20px;

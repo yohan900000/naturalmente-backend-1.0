@@ -5,6 +5,8 @@ namespace App\Http\Controllers\administration;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Gamme;
+use App\Models\product;
+use App\Models\Text;
 use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Http\Request;
 
@@ -57,14 +59,6 @@ class ManagementProductController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
     {
         //
     }
