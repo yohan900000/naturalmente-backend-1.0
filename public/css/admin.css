@@ -322,20 +322,18 @@ main .main-content .container__main .content article:hover .actions {
 }
 
 main .main-content .container__main .content .pictures {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    flex-wrap: wrap;
 }
 
 main .main-content .container__main .content .pictures article {
-    width: 230px;
+    width: 300px;
     height: auto;
 }
 
 main .main-content .container__main .content .pictures article img {
-    object-fit: contain;
-    max-height: 230px;
+    width: 100%;
 }
 
 main .main-content .container__main .content article.frame {
@@ -579,4 +577,23 @@ main .main-content .links a.active {
     background-color: #FEEED7;
 }
 
+.textarea_description {
+    height: 35px;
+    background-color: #F6FAFB;
+    border: 1px solid #DDDCDA;
+    color: #848484;
+    outline: none;
+}
+.textarea_description select {
+    /* Styliser le menu déroulant lui-même */
+    appearance: none; /* Supprimer les styles de l'élément natif du navigateur */
+    padding: 5px; /* Ajuster le rembourrage pour correspondre à vos besoins */
+    background-color: red;
+}
+
+.textarea_description select option {
+    /* Styliser les options à l'intérieur du menu déroulant */
+    background-color: red;
+    /* Ajoutez d'autres styles au besoin */
+}
 

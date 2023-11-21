@@ -88,9 +88,14 @@ class ManagementProductController extends Controller
     {
         $product = Product::find($request->input('delete_product'));
 
+        $gammeFolder = public_path('storage/products/' . $product->gamme->name);
+
+
         Product::destroy($request->input('delete_product'));
-        
+
         Storage::disk('public')->delete($product->picture);
+
+        is_dir($gammeFolder) && (count(scandir($gammeFolder)) <= 2) && rmdir($gammeFolder);
 
         return redirect(url()->previous())->with('success', 'L\'élément a été supprimé avec succès!');
     }

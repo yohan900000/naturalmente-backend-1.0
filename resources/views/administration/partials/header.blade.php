@@ -18,6 +18,5 @@
     <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.0/dist/css/tom-select.css" rel="stylesheet">
 </head>
 <body>
