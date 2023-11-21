@@ -442,7 +442,7 @@ section.coloration #container .links__coloration a:hover {
     display: block;
 }
 #container section.products .product .modal-product .content-modal p {
-    margin-top: 30px;
+    margin-top: 5px;
     color: #434343;
     line-height: 30px;
 }

@@ -57,8 +57,17 @@ class ManagementTextController extends Controller
         $text = Text::findOrFail($id);
         $text->load('gamme');
 
+        $gammeName = Gamme::findOrFail($textRequest->validated('gamme_id'));
+
         $text->update($textRequest->validated());
 
-        return redirect()->route('admin.gammes', ['slug' => $text->gamme->name])->with('success', 'Enregistrement réussi !');
+        return redirect()->route('admin.gammes', ['slug' => $gammeName->name])->with('success', 'Enregistrement réussi !');
+    }
+
+    public function destroy(Request $request)
+    {
+        Text::destroy($request->input('delete_text'));
+
+        return redirect(url()->previous())->with('success', 'L\'élément a été supprimé avec succès!');
     }
 }

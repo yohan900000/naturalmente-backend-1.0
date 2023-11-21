@@ -7,6 +7,7 @@ use App\Http\Requests\FramingTextRequest;
 use App\Models\FramingText;
 use App\Models\Gamme;
 use Illuminate\Http\Request;
+
 class ManagementFramingTextController extends Controller
 {
     /**
@@ -56,9 +57,17 @@ class ManagementFramingTextController extends Controller
         $framingText = FramingText::findOrFail($id);
         $framingText->load('gamme');
 
+        $gammeName = Gamme::findOrFail($framingTextRequest->validated('gamme_id'));
+
         $framingText->update($framingTextRequest->validated());
 
-        return redirect()->route('admin.gammes', ['slug' => $framingText->gamme->name])->with('success', 'Enregistrement réussi !');
+        return redirect()->route('admin.gammes', ['slug' => $gammeName->name])->with('success', 'Enregistrement réussi !');
+    }
 
+    public function destroy(Request $request)
+    {
+        FramingText::destroy($request->input('delete_framing_text'));
+
+        return redirect(url()->previous())->with('success', 'L\'élément a été supprimé avec succès!');
     }
 }

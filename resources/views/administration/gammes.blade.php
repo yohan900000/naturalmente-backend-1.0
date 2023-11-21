@@ -31,7 +31,7 @@
                         <article class="frame">
                             <div class="products__description"> {!! $framingText->description !!}</div>
                             <div class="actions">
-                                <form action="{{ url()->current() }}" method="post">
+                                <form action="{{ route('admin.framing-text.delete') }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="delete" name="delete_framing_text" value="{{ $framingText->id }}"><i
@@ -64,7 +64,7 @@
                         <article>
                             {!! $text->description !!}
                             <div class="actions">
-                                <form action="{{ url()->current() }}" method="post">
+                                <form action="{{ route('admin.text.delete') }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="delete" name="delete_text" value="{{ $text->id }}"><i
@@ -97,13 +97,13 @@
                                 <img src="/storage/{{ $product->picture }}" alt="">
                                 <h2>{{ $product->title }}</h2>
                                 <div class="actions">
-                                    <form action="{{ url()->current() }}" method="post">
+                                    <form action="{{ route('admin.product.delete') }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button class="delete" name="delete_product" value="{{ $product->id }}"><i
                                                 class="fa-solid fa-xmark"></i></button>
                                     </form>
-                                    <a class="update" href=""><i class="fa-solid fa-pen"></i></a>
+                                    <a class="update" href="{{ route('admin.product.edit', ['id' => $product->id]) }}"><i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </article>
                         @endforeach

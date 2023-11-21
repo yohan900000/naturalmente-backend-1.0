@@ -41,10 +41,7 @@
                                 </select>
                             </div>
                             <span class="sep"></span>
-                            <div class="form-group">
-                                <label for="description">Votre texte</label>
-                                <textarea id="description" name="description">{{ old('', $text->description) }}</textarea>
-                            </div>
+                            @include('administration.layouts.form', ['type' => 'textarea', 'label' => 'Votre text', 'name' => 'description', 'value' => old('', $text->description)])
                             <button class="btn_submit">Envoyer</button>
                         </form>
                     </div>

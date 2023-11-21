@@ -45,8 +45,6 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
-    Route::delete('/gammes/{slug}', [ManagementDestroyController::class, 'destroy']);
-
 
     /*
      * Administration FRAMING_TEXT
@@ -54,6 +52,8 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::prefix('framing-text')->name('framing-text.')->group(function () {
         Route::get('/create', [ManagementFramingTextController::class, 'index'])->name('create');
         Route::post('/create', [ManagementFramingTextController::class, 'store'])->name('store');
+        Route::delete('/delete', [ManagementFramingTextController::class, 'destroy'])->name('delete');
+
 
         Route::get('/update/{id}', [ManagementFramingTextController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [ManagementFramingTextController::class, 'update'])->name('update');
@@ -65,6 +65,8 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::prefix('text')->name('text.')->group(function () {
         Route::get('/create', [ManagementTextController::class, 'index'])->name('create');
         Route::post('/create', [ManagementTextController::class, 'store']);
+        Route::delete('/delete', [ManagementTextController::class, 'destroy'])->name('delete');
+
 
         Route::get('/update/{id}', [ManagementTextController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [ManagementTextController::class, 'update'])->name('update');
@@ -76,6 +78,7 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('/create', [ManagementProductController::class, 'index'])->name('create');
         Route::post('/create', [ManagementProductController::class, 'store']);
+        Route::delete('/delete', [ManagementProductController::class, 'destroy'])->name('delete');
 
         Route::get('/update/{id}', [ManagementProductController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [ManagementProductController::class, 'update'])->name('update');

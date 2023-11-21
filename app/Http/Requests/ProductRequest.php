@@ -21,12 +21,18 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'title' => ['required'],
             'gamme_id' => ['required'],
-            'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,webp,svg'],
+            'picture' => ['image', 'mimes:jpeg,png,jpg,webp,svg'],
             'description' => '',
         ];
+
+        if ($this->isMethod('put') && $this->filled('picture')) {
+            $rules['picture'][] = 'required';
+        }
+
+        return $rules;
     }
 
     public function messages(): array
@@ -37,7 +43,6 @@ class ProductRequest extends FormRequest
             'picture.required' => 'Le champ image est requis.',
             'picture.image' => 'Le fichier doit être une image.',
             'picture.mimes' => 'Le fichier doit avoir une extension parmi :values.',
-            'picture.max' => 'La taille de l\'image ne doit pas dépasser 2048 kilo-octets (2 Mo).',
         ];
     }
 }

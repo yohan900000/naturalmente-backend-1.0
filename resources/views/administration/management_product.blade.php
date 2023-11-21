@@ -1,5 +1,4 @@
 @extends('administration.base')
-
 @section('content')
     <div class="main-content">
         <div class="top_bar">
@@ -45,27 +44,26 @@
                         @method(request()->segment(3) === 'create' ? 'post' : 'put')
                         <div class="title__form">Création d'un produit</div>
                         <span class="sep"></span>
-                        <div class="form-group">
-                            <label for="title">Titre</label>
-                            <input type="text" id="title" name="title" placeholder="Titre du produit">
-                        </div>
+
+                        @include('administration.layouts.form', ['label' => 'Titre', 'name' => 'title', 'placeholder' => 'Titre du produit', 'value' => old('', $product->title)])
                         <div class="form-group">
                             <label for="gamme_id">Gamme</label>
                             <select name="gamme_id" id="gamme_id" multiple>
                                 @foreach($gammes as $gamme)
-                                    <option value="{{ $gamme->id }}">{{ $gamme->name }}</option>
+                                    <option
+                                        value="{{ $gamme->id }}" {{ $gamme->id === $product->gamme_id ? 'selected' : '' }}>{{ $gamme->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="title">Photo</label>
-                            <input type="file" id="picture" name="picture">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea id="description" name="description"></textarea>
-                        </div>
-                        <button type="submit" name="create_product">Envoyer</button>
+                        @if(request()->segment(3) === 'create')
+                            <div class="form-group">
+                                <img src="{{ asset('/storage/' . $product->picture) }}" alt="Product Image">
+                            </div>
+                        @endif
+                        @include('administration.layouts.form', ['type' => 'file','label' => 'Photo', 'name' => 'picture'])
+                        @include('administration.layouts.form', ['type' => 'textarea','label' => 'Description', 'name' => 'description', 'value' => old('', $product->description)])
+
+                        <button type="submit">Envoyer</button>
                     </form>
                 </div>
             </div>

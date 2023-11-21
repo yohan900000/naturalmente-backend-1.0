@@ -42,15 +42,13 @@
                                 <label for="gamme_id">Gamme</label>
                                 <select name="gamme_id" id="gamme_id" multiple>
                                     @foreach($gammes as $gamme)
-                                        <option value="{{ $gamme->id }}" {{ $gamme->id === $framingText->gamme_id ? 'selected' : '' }}>{{ $gamme->name }}</option>
+                                    <option
+                                        value="{{ $gamme->id }}" {{ $gamme->id === $framingText->gamme_id ? 'selected' : '' }}>{{ $gamme->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <span class="sep"></span>
-                            <div class="form-group">
-                                <label for="description">Votre texte</label>
-                                <textarea id="description" name="description">{{ old('', $framingText->description) }}</textarea>
-                            </div>
+                            @include('administration.layouts.form', ['type' => 'textarea', 'label' => 'Votre text', 'name' => 'description', 'value' => old('', $framingText->description)])
                             <button class="btn_submit">Envoyer</button>
                         </form>
                     </div>
