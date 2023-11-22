@@ -26,4 +26,9 @@ class Gamme extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function picture(): HasMany
+    {
+        return $this->hasMany(Picture::class);
+    }
+
 }

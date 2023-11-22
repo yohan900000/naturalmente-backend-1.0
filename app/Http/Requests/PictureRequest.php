@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class PictureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,25 +21,16 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
-            'title' => ['required'],
+        return [
             'gamme_id' => ['required'],
-            'picture' => ['image', 'mimes:jpeg,png,jpg,webp,svg'],
-            'description' => '',
+            'picture' => ['required', 'image', 'mimes:jpeg,png,jpg,webp,svg'],
         ];
-
-        if ($this->isMethod('post')) {
-            $rules['picture'][] = 'required';
-        }
-
-        return $rules;
     }
 
     public function messages(): array
     {
         return [
             'gamme_id.required' => 'Le champ gamme est requis.',
-            'title.required' => 'Le champ titre est requis.',
             'picture.required' => 'Le champ image est requis.',
             'picture.image' => 'Le fichier doit être une image.',
             'picture.mimes' => 'Le fichier doit avoir une extension parmi :values.',

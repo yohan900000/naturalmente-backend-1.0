@@ -4,6 +4,7 @@ use App\Http\Controllers\administration\AdministrationController;
 use App\Http\Controllers\administration\GammeAdministrationController;
 use App\Http\Controllers\administration\ManagementDestroyController;
 use App\Http\Controllers\administration\ManagementFramingTextController;
+use App\Http\Controllers\administration\ManagementPictureController;
 use App\Http\Controllers\administration\ManagementProductController;
 use App\Http\Controllers\administration\ManagementTextController;
 use App\Http\Controllers\auth\LoginController;
@@ -82,6 +83,15 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
 
         Route::get('/update/{id}', [ManagementProductController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [ManagementProductController::class, 'update'])->name('update');
+    });
+
+    /*
+* Administration PRODUCT
+*/
+    Route::prefix('picture')->name('picture.')->group(function () {
+        Route::get('/create', [ManagementPictureController::class, 'index'])->name('create');
+        Route::post('/create', [ManagementPictureController::class, 'store']);
+        Route::delete('/delete', [ManagementPictureController::class, 'destroy'])->name('delete');
     });
 
 });

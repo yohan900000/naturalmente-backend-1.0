@@ -17,7 +17,8 @@ class GammeAdministrationController extends Controller
         $framingTexts = $gamme->framingText()->latest()->get();
         $texts = $gamme->text()->latest()->get();
         $products = $gamme->product()->latest()->get();
+        $pictures = $gamme->picture()->latest()->get();
 
-        return view('administration.gammes', compact('framingTexts', 'gamme', 'texts', 'gammes', 'products'));
+        return view('administration.gammes', compact('framingTexts', 'gamme', 'texts', 'gammes', 'products', 'pictures'));
     }
 }

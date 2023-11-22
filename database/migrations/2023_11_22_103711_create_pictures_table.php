@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('framing_texts', function (Blueprint $table) {
+        Schema::create('pictures', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
+            $table->string('picture');
             $table->foreignId('gamme_id')->constrained('gammes')->cascadeOnDelete();
             $table->timestamps();
         });
@@ -24,10 +24,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('framing_texts', function (Blueprint $table) {
+        Schema::table('pictures', function (Blueprint $table) {
             $table->dropForeign(['gamme_id']);
         });
-
-        Schema::dropIfExists('framing_text');
+        Schema::dropIfExists('pictures');
     }
 };
