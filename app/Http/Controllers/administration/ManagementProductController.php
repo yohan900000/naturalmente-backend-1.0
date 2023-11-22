@@ -4,10 +4,8 @@ namespace App\Http\Controllers\administration;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
-use App\Models\FramingText;
 use App\Models\Gamme;
-use App\Models\product;
-use App\Models\Text;
+use App\Models\Product;
 use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

@@ -9,7 +9,7 @@
 <div class="form-group">
     @if($type === 'text')
         <label for="{{ $name }}">{{ $label }}</label>
-        <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}">
+        <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{ $value }}">
     @elseif($type === 'textarea')
         <label for="{{ $name }}">{{ $label }}</label>
         <textarea id="{{ $name }}" name="{{ $name }}">{{ $value }}</textarea>

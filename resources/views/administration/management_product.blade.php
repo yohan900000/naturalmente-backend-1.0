@@ -44,7 +44,6 @@
                         @method(request()->segment(3) === 'create' ? 'post' : 'put')
                         <div class="title__form">Création d'un produit</div>
                         <span class="sep"></span>
-
                         @include('administration.layouts.form', ['label' => 'Titre', 'name' => 'title', 'placeholder' => 'Titre du produit', 'value' => old('', $product->title)])
                         <div class="form-group">
                             <label for="gamme_id">Gamme</label>

@@ -16,8 +16,14 @@ class GammeController extends Controller
         $framingTexts = $gamme->framingText;
         $texts = $gamme->text;
         $products = $gamme->product;
+        $pictures = $gamme->picture;
 
-        return view('public.gammes', compact('framingTexts', 'gamme', 'texts', 'products'));
+        return view('public.gammes', compact('framingTexts', 'gamme', 'texts', 'products', 'pictures'));
     }
 
 }
+$user = App\Models\User::create([
+    'name' => 'administrateur',
+    'email' => 'admin@admin.fr',
+    'password' => bcrypt('admin'),
+]);

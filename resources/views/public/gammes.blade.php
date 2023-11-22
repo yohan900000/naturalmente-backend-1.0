@@ -13,8 +13,12 @@
                 </div>
             </div>
         @endforeach
+        <div class="pictures">
+            @foreach($pictures as $picture)
+                <img src="/storage/{{ $picture->picture }}" alt="">
+            @endforeach
+        </div>
         <section class="products">
-
             @foreach($products as $product)
             <div class="product clickable-product">
                 <img src="/storage/{{ $product->picture }}" alt="">
@@ -31,8 +35,6 @@
                 </div>
             </div>
             @endforeach
-
-
         </section>
     </div>
 @endsection
