@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="container">
-        <h1 class="products__title">Gamme In Bloom</h1>
+        <h1 class="products__title">{{ ucfirst(str_replace('_', ' ', request()->segment(2))) }}</h1>
         @foreach($framingTexts as $framingText)
             <div class="products__description">{!! $framingText->description !!}</div>
         @endforeach

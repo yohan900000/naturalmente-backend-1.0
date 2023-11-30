@@ -22,8 +22,3 @@ class GammeController extends Controller
     }
 
 }
-$user = App\Models\User::create([
-    'name' => 'administrateur',
-    'email' => 'admin@admin.fr',
-    'password' => bcrypt('admin'),
-]);

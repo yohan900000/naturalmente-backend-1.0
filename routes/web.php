@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\administration\AddGammeController;
 use App\Http\Controllers\administration\AdministrationController;
 use App\Http\Controllers\administration\GammeAdministrationController;
 use App\Http\Controllers\administration\ManagementDestroyController;
@@ -46,6 +47,17 @@ Route::middleware(['auth'])->prefix('/administration')->name('admin.')->group(fu
     Route::delete('/', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/gammes/{slug}', [GammeAdministrationController::class, 'index'])->name('gammes');
+
+
+    /*
+    * Administration ADD GAMME
+    */
+    Route::prefix('add_gamme')->name('add_gamme.')->group(function () {
+        Route::get('/', [AddGammeController::class, 'index'])->name('index');
+        Route::delete('/', [AddGammeController::class, 'destroy'])->name('delete');
+        Route::post('/', [AddGammeController::class, 'store'])->name('create');
+    });
+
 
     /*
      * Administration FRAMING_TEXT

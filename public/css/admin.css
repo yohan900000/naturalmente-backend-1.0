@@ -414,7 +414,7 @@ main .main-content .container__main .form__main .ts-control .ts-dropdown .option
     color: #fff;
 }
 
-main .main-content .container__main .form__main form .form-group {
+main .main-content .container__main .form__main form .form-group, form .form-group {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -424,14 +424,14 @@ main .main-content .container__main .form__main form .form-group img {
     max-width: 50px;
 }
 
-main .main-content .container__main .form__main form .form-group label {
+main .main-content .container__main .form__main form .form-group label, form .form-group label {
     color: #292B35;
     font-size: 10px;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
-main .main-content .container__main .form__main form .form-group input {
+main .main-content .container__main .form__main form .form-group input, form .form-group input {
     background-color: #F6FAFB;
     border: 1px solid #DDDCDA;
     color: #848484;
@@ -442,7 +442,7 @@ main .main-content .container__main .form__main form .form-group input {
     outline: none;
 }
 
-main .main-content .container__main .form__main form .btn_submit {
+main .main-content .container__main .form__main form .btn_submit, form .btn_submit {
     background-color: #a67c52;
     border-radius: 3px;
     cursor: pointer;
@@ -597,3 +597,59 @@ main .main-content .links a.active {
     /* Ajoutez d'autres styles au besoin */
 }
 
+.table_add_gamme {
+    width: 100%;
+    background-color: #F6FAFB;
+    border: 1px solid #DDDCDA;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+}
+
+.table_add_gamme thead {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #DDDCDA;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.table_add_gamme thead tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.table_add_gamme tbody {
+}
+
+.table_add_gamme tbody tr {
+    width: 100%;
+    height: 40px;
+    padding: 0 48px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #DDDCDA;
+}
+
+.table_add_gamme tbody tr:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.table_add_gamme tbody tr button {
+    border: none;
+}
+.table_add_gamme tbody tr button i {
+    color: #ff7070;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+
+.table_add_gamme tbody tr button i:hover {
+    color: #F30C0C;
+}
